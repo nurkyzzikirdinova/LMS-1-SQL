@@ -43,7 +43,7 @@ values ('Aibek Zhunushaliev', 36, 'AIU', 1, '2023-12-10'),
 create table attractions(
                             id serial primary key,
                             name_attractions varchar not null,
-                            city_id int references cities(id),
+                            city_id int references cities(id)
 );
 
 alter table attractions add column season varchar;
@@ -84,13 +84,14 @@ values ('st.Mars, h.22', 2 , 14 , 4 , 'Lalely'),
        ('st.Mars, h.341', 3 , 19 , 8 , 'Lily'),
        ('st.Markin, h.169', 1 , 10 , 3 , 'Pasha');
 
-create table street (
-                        id serial primary key,
-                        name_st varchar (100) not null,
-                        population int,
-                        city_id int references cities (id),
-                        country_id int references  countries (id)
-)
+create table street
+(
+    id         serial primary key,
+    name_st    varchar(100) not null,
+    population int,
+    city_id    int references cities (id),
+    country_id int references countries (id)
+);
     insert into street (name_st , population,city_id, country_id )
 values ('Mars', 20000, 1, 1),
 ('Allin', 50000, 2, 2),
